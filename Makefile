@@ -11,4 +11,11 @@ components: component.json
 clean:
 	rm -fr build components template.js
 
-.PHONY: clean
+docme: build
+	mv build _build
+	mv test _test
+	git checkout gh-pages
+	mv _build build
+	mv _test test
+
+.PHONY: clean docme
