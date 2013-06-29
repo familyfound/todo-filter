@@ -5,6 +5,9 @@ build: components index.js todo-filter.css template.js
 template.js: template.html
 	@component convert $<
 
+template.html: template.jade
+	@jade -P $<
+
 components: component.json
 	@component install --dev
 
